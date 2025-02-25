@@ -1,11 +1,22 @@
 let gridSize = 16;
 
 function changeGrid() {
-  gridSize = Number(prompt("enter grid size", 100));
+  gridSize = Number(prompt("Enter grid size", 100));
+
+  // Ensure the input is a valid number and within a reasonable range
+  if (isNaN(gridSize) || gridSize < 1 || gridSize > 100) {
+    alert("Please enter a number between 1 and 100.");
+    return;
+  }
+
+  createGrid(gridSize);
 }
 
 function createGrid(size) {
   const divContainer = document.querySelector(".container");
+
+  //clear previus grid
+  divContainer.innerHTML = "";
 
   const cellSize = 960 / size;
 
