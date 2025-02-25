@@ -28,11 +28,40 @@ function createGrid(size) {
     cell.classList.add("box");
     cell.style.width = `${cellSize}px`;
     cell.style.height = `${cellSize}px`;
-    cell.addEventListener("mouseover", () => {
-      cell.style.backgroundColor = "black";
+
+    cell.addEventListener("mouseover", (e) => {
+      if (isErasing) {
+        cell.style.backgroundColor = "aliceblue"; // Erase when middle mouse is held
+      } else {
+        cell.style.backgroundColor = "black"; // Draw normally
+      }
     });
+
     divContainer.appendChild(cell);
   }
 }
 
+// Variable to track middle button press
+let isErasing = false;
+
+// Detect middle button hold
+document.addEventListener("mousedown", (e) => {
+  if (e.button === 1) {
+    isErasing = true;
+  }
+});
+
+// Detect when the button is released
+document.addEventListener("mouseup", () => {
+  isErasing = false;
+});
+
 createGrid(gridSize);
+
+//clear canvas
+function clearCanvas() {
+  const boxes = document.querySelectorAll(".box");
+  boxes.forEach((box) => {
+    box.style.backgroundColor = "aliceblue";
+  });
+}

@@ -29,3 +29,5 @@ If size = 16, this loop will run 16 _ 16 = 256 times (for each cell in the grid)
 let i = 0; starts the loop at 0.
 i < size _ size; means the loop will keep running until it reaches the total number of cells.
 i++ increases i by 1 each time, so it loops through each iteration.
+
+### added eraser funcionality
