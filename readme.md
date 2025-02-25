@@ -1,1 +1,1 @@
-#Odin project - Project - Etch the sketch
+# Odin project - Project - Etch the sketch
