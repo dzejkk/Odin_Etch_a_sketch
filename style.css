@@ -1,22 +1,23 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 main {
   display: grid;
-  height: 50dvh;
   place-content: center;
 }
 
 .container {
-  width: 26rem;
+  width: 960px;
+  height: 960px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .box {
-  width: 24px;
-  height: 24px;
-  border: 1px solid black;
+  flex: 1 0 auto;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
 }

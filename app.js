@@ -1,16 +1,27 @@
-const divContainer = document.querySelector(".container");
-const box = document.querySelectorAll(".box");
+let gridSize = 16;
 
-/*Creating DOM elements*/
+function changeGrid() {
+  gridSize = Number(prompt("enter grid size", 100));
+}
 
-document.addEventListener("DOMContentLoaded", (event) => {
-  for (let i = 0; i < 256; i++) {
-    const newBox = document.createElement("div");
-    newBox.className = "box";
-    divContainer.appendChild(newBox);
+function createGrid(size) {
+  const divContainer = document.querySelector(".container");
+
+  const cellSize = 960 / size;
+
+  //generate grid
+
+  for (let i = 0; i < size * size; i++) {
+    let cell = document.createElement("div");
+
+    cell.classList.add("box");
+    cell.style.width = `${cellSize}px`;
+    cell.style.height = `${cellSize}px`;
+    cell.addEventListener("mouseover", () => {
+      cell.style.backgroundColor = "black";
+    });
+    divContainer.appendChild(cell);
   }
-});
+}
 
-divContainer.addEventListener("mouseover", (event) => {
-  event.target.style.backgroundColor = "violet";
-});
+createGrid(gridSize);
